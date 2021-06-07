@@ -12,12 +12,12 @@ function utcToJST(utcTime) {
 //天気情報を取得
 function getData() {
 
-//  var url = 'http://api.openweathermap.org/data/2.5/forecast?q='+defaultCity +',jp&units=metric&APPID=' + API_KEY;
+//  var url = 'https://api.openweathermap.org/data/2.5/forecast?q='+defaultCity +',jp&units=metric&APPID=' + API_KEY;
 
     const status = document.getElementById('status');
 
     $.ajax({
-        url: 'http://api.openweathermap.org/data/2.5/forecast?q='+defaultCity +',jp&units=metric&APPID=' + API_KEY,
+        url: 'https://api.openweathermap.org/data/2.5/forecast?q='+defaultCity +',jp&units=metric&APPID=' + API_KEY,
         dataType: 'json',
         type: 'GET',
         data: {
@@ -37,7 +37,7 @@ function getData() {
             const min = String(dateTime.getMinutes()).padStart(2, '0');
             const temperature = Math.round(forecast.main.temp);
             const description = forecast.weather[0].description;
-            const iconPath = 'http://openweathermap.org/img/w/' + forecast.weather[0].icon + '.png';
+            const iconPath = 'https://openweathermap.org/img/w/' + forecast.weather[0].icon + '.png';
 
             console.log('日時：' + `${month}/${date} ${hours}:${min}`);
             console.log('気温：' + temperature);
